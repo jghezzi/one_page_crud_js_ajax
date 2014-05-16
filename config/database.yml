@@ -1,0 +1,19 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: one_page_crud_js_ajax_development
+  pool: 5
+
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: one_page_crud_js_ajax_test
+  pool: 5
+
+production:  
+  adapter: postgresql
+  encoding: utf8
+  database: one_page_crud_js_ajax
+  pool: 5

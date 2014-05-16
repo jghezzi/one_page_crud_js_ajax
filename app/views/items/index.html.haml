@@ -1,0 +1,18 @@
+%table
+	%thead
+		%th Item
+		%th Update?
+		%th Delete?
+	%tbody
+		- @items.each do |item|
+			%tr
+				%td= item.name
+				%td= button_tag "Update", class: "update-class", id: item.id, data: { "item-id" => item.id }
+				%td= button_tag "Delete", class: "delete-class", id: item.id, data: { "item-id" => item.id }
+= button_tag "Add Item", class: "add-class"
+
+.add-modal	
+	= form_for @new_item, :remote => true do |f|
+		= f.label :name
+		= f.text_field :name
+		= f.button "ADD", class: "add-button"
