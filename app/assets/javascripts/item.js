@@ -15,15 +15,18 @@ $ (function() {
 		$('.add-modal').show("slow");
 	});
 
-	$('.add-button').on('click',function(){
+	$('.add-button').on('click',function(e){
 		console.log("MODAL ADD")
+		var my_new_item = $('#item_name').val()
+		console.log(my_new_item)
+		e.preventDefault();
 		$.ajax({
 		
 		url: 		"/items",
 		type: 	'POST',
 			data: 	{
 				item:  {
-					"name":  "This is a test"
+					"name":  my_new_item
 				}
 			},
 			success: function(data){
