@@ -7,12 +7,24 @@
 		- @items.each do |item|
 			%tr
 				%td= item.name
-				%td= button_tag "Update", class: "update-class", id: item.id, data: { "item-id" => item.id }
+				%td= button_tag "Update", :remote => true, class: "update-class", id: item.id, data: { "item-id" => item.id }
 				%td= button_tag "Delete", class: "delete-class", id: item.id, data: { "item-id" => item.id }
+%br
 = button_tag "Add Item", class: "add-class"
 
 .add-modal	
 	= form_for @new_item, :remote => true do |f|
 		= f.label :name
 		= f.text_field :name, class: "add-this"
-		= f.submit "ADD", class: "add-button"
+		.container
+			= f.submit "ADD", class: "add-button"
+
+.update-modal
+	= form_for :items, :remote => true do |ff|
+		= ff.label :name
+		= ff.text_field :name, class: "update-this"
+		.container
+			= ff.submit "UPDATE", class: "update-button"
+
+
+
