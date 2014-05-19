@@ -17,14 +17,13 @@
 		= f.label :name
 		= f.text_field :name, class: "add-this"
 		.container
-			= f.submit "ADD", class: "add-button"
+			= f.button "Add", class: "add-button"
+			= f.button "Cancel", class: "cancel-add-button"
 
 .update-modal
 	= form_for :items, :remote => true do |ff|
 		= ff.label :name
 		= ff.text_field :name, class: "update-this"
 		.container
-			= ff.submit "UPDATE", class: "update-button"
-
-
-
+			= ff.button "Update", class: "update-button"
+			= ff.button "Cancel", class: "cancel-update-button"

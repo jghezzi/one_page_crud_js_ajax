@@ -3,13 +3,6 @@ class ItemsController < ApplicationController
 	def index
 		@items = Item.all
 		@new_item = Item.new
-		@item = Item.all
-	end
-
-	def edit
-  	@items = Item.all
-  	@item = Item.find(params[:id])
-  	render :action => "index"
 	end
 
 	def update
@@ -43,11 +36,6 @@ class ItemsController < ApplicationController
 			end
 		end
 	end
-
-respond_to do |format|
-				format.js
-				format.html { redirect_to lists_path }
-			end
 
 	def destroy
 		@item = Item.find(params[:id])
