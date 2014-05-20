@@ -26,8 +26,7 @@ class ItemsController < ApplicationController
 		@new_item = Item.new(item_params)
 		if @new_item.save
 			respond_to do |format|
-				format.js
-				format.html { redirect_to items_path }
+				format.js {render json: @new_item}
 			end
 		else
 			respond_to do |format|
@@ -51,7 +50,6 @@ class ItemsController < ApplicationController
 			end
 		end
 	end
-
 
 	private
 
